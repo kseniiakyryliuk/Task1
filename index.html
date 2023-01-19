@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body >
+    <header class="header">
+   <h3>Редагування робочого часу</h3>  
+    </header>
+ 
+    <main>
+  
+
+    <form >
+<div class="main-div" id="row_0">
+ 
+  <div class="all">
+    
+  <button id="add" onclick="return false">Додати ще + </button>
+      <input type="time" class="time_from" placeholder="Time from" value="">
+      <input type="time" class="time_to" placeholder="Time to" value="">
+
+      <div class="allDays">
+      <div class="days">
+         <label class="one_day">
+            <span class="monday">Пн </span>
+              <input type="checkbox" class="checkbox" value="0" name="values" onchange="refreshCheckbox(this)">  
+          </label>
+      </div>
+      
+      <div class="days">
+          <label class="one_day">
+            <span class="tuesday">Вт</span>
+              <input type="checkbox" class="checkbox" value="1" name="values" onchange="refreshCheckbox(this)">  
+          </label>
+      </div>
+      
+      <div class="days">
+          <label class="one_day">
+            <span class="wednesday">Ср</span>
+              <input type="checkbox" class="checkbox" value="2" name="values" onchange="refreshCheckbox(this)">  
+          </label>
+      </div>
+      
+      <div class="days">
+          <label class="one_day">
+            <span class="thursday">Чт</span>
+              <input type="checkbox" class="checkbox" value="3" name="values" onchange="refreshCheckbox(this)">  
+          </label>
+      </div>
+      
+      <div class="days">
+          <label class="one_day">
+            <span class="friday">Пт</span>
+              <input type="checkbox" class="checkbox" value="4" name="values" onchange="refreshCheckbox(this)">  
+          </label>
+      </div>
+      
+      <div class="days">
+            <label class="one_day">
+            <span class="saturday">Сб</span>
+              <input type="checkbox" class="checkbox" value="5" name="values" onchange="refreshCheckbox(this)">  
+          </label>
+      </div>
+      
+      <div class="days">
+          <label class="one_day">
+            <span class="sunday">Нд</span>
+              <input type="checkbox" class="checkbox" value="6" name="values" onchange="refreshCheckbox(this)">  
+          </label>
+      </div>   
+    </div> 
+
+    <div class="error">*Введіть коректні дані</div> 
+   </div>              
+</div>
+
+<div class="others"></div>
+
+<button id = "submit" onclick="return false">Зберегти</button>  
+</form>
+   
+</main>     
+   
+  <script src="index.js"></script>
+  </body>
+</html>
