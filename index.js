@@ -8,9 +8,9 @@ let curIndex = 0;
 const add = document.getElementById("add");
 add.addEventListener('click', addElements);
 function addElements(){
-
-  let number = generateRowId();
-if (number<7)
+   let number = generateRowId();
+   lastRow(number-1);
+   if (number<7)
  {  let div = document.createElement('div');
      let secDiv = document.createElement('div');
     div.innerHTML = ` <div class="main-div" id="row_${number}">
@@ -69,7 +69,7 @@ if (number<7)
         </label>
      </div>   
   </div>
-           <div class="error">*Введіть коректні дані</div> 
+           <div class="error" id="error_${number}">*Введіть коректні дані</div> 
            
   </div>
             
@@ -125,10 +125,37 @@ function onSubmit(){
          indexList.push(rowData); 
         } 
 
+        localStorage.setItem('list',JSON.stringify(indexList));
 
+           }
 
-        console.log(indexList);
-      }
+function lastRow(number) {
+  const rows = document.getElementsByClassName("main-div");
+  let row = rows[number];
+
+  let rowsOfCheckboxes = row.getElementsByClassName("checkbox");
+  let days = collectActiveDays(rowsOfCheckboxes);
+
+   
+    let valueOfFirst = row.getElementsByClassName("time_from");
+    let valueOfSecond = row.getElementsByClassName("time_to");
+     let hours=collectHours(valueOfFirst, valueOfSecond);
+     let rowData = {    
+         days,
+        hours,
+     };
+
+   let error=document.getElementById(`error_${number}`);
+ if(rowData.hours[1] < rowData.hours[0] || rowData.hours[1] === rowData.hours[0] || rowData.hours[0] == '' || rowData.hours[1] == ''||days.length==0)
+  {
+      error.style.display = 'block';
+  }
+  else{
+    error.style.display = 'none';
+  }
+
+}
+
 
 
       function collectHours(fromList,toList){

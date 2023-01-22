@@ -75,5 +75,7 @@ h3{margin: 0;}
    font-size: 15px;
  
 }
-
+.time_from, .time_to{
+  cursor: pointer;
+}
 
